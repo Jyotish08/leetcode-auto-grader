@@ -1,0 +1,10 @@
+{
+  "correctness":35,
+  "edge_case":10,
+  "time_complexity":15,
+  "space_complexity":5,
+  "runtime":10,
+  "constraint_awareness":10,
+  "code_quality":10,
+  "algorithm_insight":5,
+}
