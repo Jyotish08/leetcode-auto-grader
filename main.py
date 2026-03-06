@@ -2,6 +2,7 @@ import json
 from utils.scorer import calculate_score
 from llm.evaluator import evaluate_code
 from storage.excel_writer import save_result
+from analyzer.complexity_analyzer import count_loops
 print("Leetcode auto grader started")
 with open("config/grading_schema.json")as
 file:
@@ -17,6 +18,8 @@ while True:
 code"\n".join(lines)
 evaluation = evaluate_code(problem,code)
 score=calculate_score(weights,evaluation)
+loops=count_loops(code)
+print("Loop detected:",loops)
 print("evaluation:",evaluation)
 print("Final score:",score)
 save_result(problem,score,evaluation)
