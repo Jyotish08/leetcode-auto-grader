@@ -1,6 +1,7 @@
 import json
 from utils.scorer import calculate_score
 from llm.evaluator import evaluate_code
+from storage.excel_writer import save_result
 print("Leetcode auto grader started")
 with open("config/grading_schema.json")as
 file:
@@ -14,6 +15,7 @@ def two_sum(nums,target):
         return [i,j]
 """
 evaluation = evaluate_code(problem,code)
-core=calculate_score(weights,evaluation)
+score=calculate_score(weights,evaluation)
 print("evaluation:",evaluation)
 print("Final score:",score)
+save_result(problem,score)
