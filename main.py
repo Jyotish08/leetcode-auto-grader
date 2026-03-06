@@ -1,19 +1,19 @@
 import json
 from utils.scorer import calculate_score
+from llm.evaluator import evaluate_code
 print("Leetcode auto grader started")
 with open("config/grading_schema.json")as
 file:
   weights = json.load(file)
-print("Scoring weights:")
-evaluation={
-  "correctness":0.9,
-  "edge_case":0.8,
-  "time_complexity":0.7,
-  "space_complexity":0.8,
-  "runtime":0.9,
-  "constraint_awareness":0.7,
-  "code_quality":0.8,
-  "algorithmic_insight":0
-}
-score=calculate_score(weights,evaluation)
+problem=""" two sum problem """
+code="""
+def two_sum(nums,target):
+  for i in range(len(nums)):
+    for j in range(i+1,len(nums)):
+      if nums[i]+nums[j] == target:
+        return [i,j]
+"""
+evaluation = evaluate_code(problem,code)
+core=calculate_score(weights,evaluation)
+print("evaluation:",evaluation)
 print("Final score:",score)
