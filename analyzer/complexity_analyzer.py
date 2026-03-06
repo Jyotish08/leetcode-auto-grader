@@ -17,3 +17,18 @@ def detect_recursion(code):
         if node.func.id in function_names:
           return True
   return False
+def  estimate_complexity(loop_count,recursion):
+  a=loop_count
+  b=recursion
+  if a ==0 and not b:
+    return "O(1)"
+  if a == 1 and not b:
+    return "O(n)"
+  if a==2:
+    return "O(n^2)"
+  if b and a ==0:
+    return "O(n) or O(log(n))"
+  if b and a >=1:
+    return "O(n*recursion)"
+  return "unknown"
+
