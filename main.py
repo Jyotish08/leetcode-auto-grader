@@ -6,14 +6,15 @@ print("Leetcode auto grader started")
 with open("config/grading_schema.json")as
 file:
   weights = json.load(file)
-problem=""" two sum problem """
-code="""
-def two_sum(nums,target):
-  for i in range(len(nums)):
-    for j in range(i+1,len(nums)):
-      if nums[i]+nums[j] == target:
-        return [i,j]
-"""
+print("Enter problem name:")
+print("When finished type END on a new line.")
+lines=[]
+while True:
+  line=input()
+  if line=='END':
+    break
+  lines.append(line)
+code"\n".join(lines)
 evaluation = evaluate_code(problem,code)
 score=calculate_score(weights,evaluation)
 print("evaluation:",evaluation)
