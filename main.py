@@ -4,6 +4,7 @@ from llm.evaluator import evaluate_code
 from storage.excel_writer import save_result
 from analyzer.complexity_analyzer import count_loops
 from analyzer.complexity_analyzer import estimate_complexity
+from analytics.progress_report import generate_report
 print("Leetcode auto grader started")
 with open("config/grading_schema.json")as
 file:
@@ -28,3 +29,6 @@ print("Estimated complexity", complexity)
 print("evaluation:",evaluation)
 print("Final score:",score)
 save_result(problem,score,evaluation)
+generate_report()
+
+
