@@ -23,16 +23,18 @@ def evaluate_code(problem,code):
                 {"role":"user","content": prompt}],
                 teperature=0)
   content=response.choices[0].messag.content
+  print("AI raw response :",content)
   try :
-    evaluatoin = json.load(content)
-  except :
+    evaluation=json.loads(content)
+  except Exception as error: :
+    print("JSON parsing failed:",error)
     evaluation = {"correctness": 0.5 ,
   "time_complexity": 0.5,
   "space_complexity":0.5,
   "code_quality": 0.5,
   "algorithmic_insight":0.5
       
-    }
+    }  
   
   return evaluation
   
